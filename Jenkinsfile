@@ -27,7 +27,7 @@ pipeline {
         script {
           nexusPolicyEvaluation(
             enableDebugLogging: false,
-            iqStage: env.GIT_BRANCH == 'master' ? 'build': 'develop',
+            iqStage: env.GIT_BRANCH == 'main' ? 'build': 'develop',
             iqApplication: 'WebGoat',
             failBuildOnNetworkError: true,
             iqScanPatterns: [
