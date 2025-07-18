@@ -27,8 +27,8 @@ pipeline {
         script {
           nexusPolicyEvaluation(
             enableDebugLogging: false,
-            iqStage: 'build',
-            iqApplication: 'sandbox-application',
+            iqStage: env.GIT_BRANCH == 'master' ? 'build': 'develop',
+            iqApplication: 'WebGoat',
             failBuildOnNetworkError: true,
             iqScanPatterns: [
               [scanPattern: '**/target/*.jar']
